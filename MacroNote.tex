@@ -66,7 +66,7 @@ Diamond overlapping-generations模型（OLG），AK模型（Solow版、Ramsey版
 \begin{theorem}[变量的增长率]
     宏观经济学最重要的议题之一是经济增长，分析这类问题要求我们简洁刻画模型中变量的增长率。
     不断加减再做除的计算过程麻烦且无趣，
-    现有一巧妙方法——变量增长率等于其自然对数关于时间$t$的一阶导数。
+    现有一巧妙方法——变量增长率等于其自然对数关于时间$t$的一阶导数。\footnote{The use of natural logarithms for growth rates is convenient because the change in the log of a variable is a good approximation of its percentage change, especially for small changes. This simplifies many dynamic calculations in macroeconomics.}
     证明如下，
     \begin{equation*}
         \frac{d \ln X_t}{d t} = \frac{d \ln X_t}{d \ X_t} \; \frac{d X_t}{d \ t} 
@@ -106,7 +106,7 @@ Diamond overlapping-generations模型（OLG），AK模型（Solow版、Ramsey版
     一类是状态变量(state variable)：有微分方程约束的变量，如有效人均资本$k_t$与其动态方程$\dot{k}_t$。
     意如其字，随时间发展，状态变量在数值上呈现连续性变化；
     另一类是控制变量(control variable)，即没有微分方程约束的变量，连续性变化与跳跃性变化均可。如每期的有效人均消费$c_t$；
-    以及共同状态变量(co-state variable) \, $\mu_t$.}
+    以及共同状态变量(co-state variable) \, $\mu_t$. (State variables: 'stock' or 'level' of something important, e.g., capital.) (Control variables: 'choice' variables decided at each point in time, e.g., consumption.) (Co-state variables / shadow price: marginal value of relaxing a state variable's constraint.)}
     一种是含有未来折现概念的现值(present value) Hamiltonian,
     \begin{align*}
         H(u(c_t), c_t, k_t, \mu_t)= e^{-(\rho-n) t} u(c_t)+\mu_t [f(k_t)-c_t-(\delta+n) k_t]
@@ -153,7 +153,7 @@ Diamond overlapping-generations模型（OLG），AK模型（Solow版、Ramsey版
     为使方程结果合理，我们需将——禁止庞氏博弈——这一前提条件纳入方程，故添加下面假定，
     \begin{align*}
         \lim _{t \rightarrow \infty} \left[e^{-(\rho-n) t} \mu_t k_t \right] = 0 .
-    \end{align*}
+    \end{align*}\footnote{The transversality condition (TVC) is a crucial boundary condition in infinite horizon optimization problems. Economically, it ensures that the value of the assets (like capital $k_t$) held at the very end (as time goes to infinity) is zero when discounted back to the present. This rules out scenarios where the agent accumulates debt indefinitely (Ponzi schemes) or over-accumulates assets beyond what's optimal for consumption over their infinite lifetime. It essentially imposes that all wealth is ultimately consumed or its value diminishes to zero at infinity.}
 \end{theorem}
 
 \begin{definition}[平衡增长路径]  \label{defbgp}
@@ -238,7 +238,7 @@ Solow模型通过假定一系列外生参数，尤其是固定不变的储蓄率
                   & = s \frac{Y_t}{A_t L_t}-\delta k_t-n k_t-g k_t \\
                   & = sf(k_t) - (n+g+\delta)k_t .
   \end{aligned}
-\end{align}
+\end{align}\footnote{This core equation $\dot{k}_t = sf(k_t) - (n+g+\delta)k_t$ shows how the capital per effective worker, $k_t$, changes over time. The term $sf(k_t)$ is actual investment per effective worker (savings times output). The term $(n+g+\delta)k_t$ is the 'break-even' investment needed to keep $k_t$ constant: $n k_t$ for new workers, $g k_t$ for technological progress making existing capital less effective in relative terms, and $\delta k_t$ for replacing depreciated capital. If actual investment exceeds break-even investment, $k_t$ rises. If it's less, $k_t$ falls. The steady state $k^*$ is reached when $\dot{k}_t = 0$.}
 根据推导结果，当
     \begin{equation}\label{solowequi}
        sf(k^*) = (n+g+\delta)k^*  
@@ -271,7 +271,7 @@ Solow模型通过假定一系列外生参数，尤其是固定不变的储蓄率
 
 此外由定义消费等于产出减储蓄，$c_t = (1-s)y_t$，由于稳态下有效人均资本量$k^*$保持不变，故由生产函数的紧缩形式$f(k)$知此时有效人均产量$y^*$恒定为某一常数，故消费量$c^*$也将保持不变。
 
-\begin{example}[$k^*$的黄金律值] \label{solowkgr}
+\begin{example}[$k^*$的黄金律值\footnote{The 'Golden Rule' level of capital, $k^*_{GR}$, refers to the steady-state capital stock per effective worker that maximizes consumption per effective worker. While higher capital always means higher output, it also requires higher investment (savings) to maintain. The Golden Rule strikes the optimal balance. If $k < k^*_{GR}$, increasing savings (and thus $k$) would increase future consumption. If $k > k^*_{GR}$ (dynamic inefficiency), reducing savings would decrease $k$ but increase consumption both now and in the future, meaning the economy has over-accumulated capital from a consumption perspective.}] \label{solowkgr}
     \mbox{} \\
     稳态下 
     \begin{equation*}
@@ -480,7 +480,7 @@ Solow模型通过假定一系列外生参数，尤其是固定不变的储蓄率
         带入$\beta = \rho - (1-\theta)g - n$,
         \begin{align} \label{ramseygc}
             g_c^* \equiv \frac{\dot{c}_t}{c_t}= \frac{r_t-\rho-\theta g}{\theta}
-        \end{align}
+        \end{align}\footnote{This is the Euler equation for consumption in the RCK model. It's a cornerstone of intertemporal optimization in macroeconomics. Here's a conceptual breakdown of its derivation: 1. Households maximize lifetime utility subject to a budget constraint. 2. A Hamiltonian is set up for this dynamic optimization problem. 3. First-order conditions are derived with respect to consumption ($c_t$) and capital ($k_t$). 4. The condition for $c_t$ typically relates marginal utility of consumption to the shadow price of capital ($\lambda_t$). 5. The condition for $k_t$ describes how the shadow price $\lambda_t$ evolves, relating it to the rate of return on capital and the discount rate. 6. By differentiating the first-order condition for $c_t$ with respect to time and substituting the evolution equation for $\lambda_t$, we eliminate $\lambda_t$ and arrive at this equation. It dictates that consumption growth depends on the difference between the market interest rate ($r_t$, or $f'(k_t)$) and the household's effective discount rate ($\rho + \theta g$), scaled by the intertemporal elasticity of substitution ($1/\theta$). If $r_t > \rho + \theta g$, households delay consumption, leading to positive consumption growth.}
         
         由式中结果，我们得知有效人均消费增长率取决于市场实际利率$r_t$，与人口增长率$n$无关。
         带入上述式(\ref{ramseyr})结果，令$r_t=f^\prime(k_t)$，则有效人均消费增长率为
@@ -623,7 +623,7 @@ Solow模型通过假定一系列外生参数，尤其是固定不变的储蓄率
 如图~\ref{ramseyequipoint}所示，不同初始$c_0$值下仅有F点能收敛于新的BGP。
 即对于任意一个大于零的初始$k_0$值，仅存在唯一一个$c_0$值使得家庭跨期最优化条件、
 资本存量动态学、家庭预算约束以及$k_t$不能为负的条件同时得到满足。
-若我们将初始$k_0$与$c_0$值一一建立联系，则得到图~\ref{ramseyr5}中的鞍点路径。
+若我们将初始$k_0$与$c_0$值一一建立联系，则得到图~\ref{ramseyr5}中的鞍点路径。\footnote{The '鞍点路径' (saddle path) is a crucial concept in dynamic systems like the RCK model. The steady state (E) is a saddle point, meaning it has stable and unstable dimensions. - If the economy starts exactly on the saddle path (the stable arm), it will converge to the steady state E. This path represents the unique initial level of consumption $c_0$ (for a given $k_0$) that leads to long-run equilibrium. - If the economy starts off this path, it will diverge away from the steady state. For example, if initial consumption is too high, capital will be depleted, and consumption will eventually fall to zero. If initial consumption is too low, capital will be over-accumulated beyond the optimal path. The assumption is that rational, forward-looking agents will choose $c_0$ to be on this saddle path, ensuring stability. Any deviation would lead to a suboptimal outcome or violate transversality conditions.}
 显然，每当经济遭遇外来冲击时，为求BGP，调整的下一期有效人均消费量$c$必要落于图~\ref{ramseyr5}中的鞍点路径上。
 
 \begin{figure}[!htbp]
